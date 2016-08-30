@@ -9,5 +9,5 @@ This is an algorithm that is for a number guessing game on the computer.
 //Underneath there will be a text box where the user types thir guess.
 // User types their guess and if the number is lower the program will say "lower" or if the number is higher it will say "higher".
 //If the user guesses correctly they will win ten points.
-// If they do not guess the right number they will lose one point starting from 10 till they get the right answer. Variable will be int losePoint = 10; The equation wll be: losePoint= losePoint -1; everytime the 
+// If they do not guess the right number they will lose one point starting from 10 till they get the right answer. Variable will be int losePoint = 10; The equation wll be: losePoint= losePoint -1; 
 // They will continue to guess till the get the right answer.
