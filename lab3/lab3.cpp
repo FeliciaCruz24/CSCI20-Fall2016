@@ -22,7 +22,7 @@ int main () {
     char endSent = '.';
     
     cout<< "MAD LIBS: SUMMER VACATION"<< endl;
-    cout<< "Type in the categories below with no spaces and they will be used to fill in the blanks in the story."<< endl;
+    cout<< "Type in the categories below with no spaces and press ENTER after you type in each category. Your words will be used to fill in the blanks in the story."<< endl;
 
     // all of the categories that the user has to answer. Their answers should show up in the mad lib.
     cout<<""<<endl;
