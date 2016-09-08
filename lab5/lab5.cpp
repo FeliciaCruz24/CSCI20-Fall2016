@@ -100,7 +100,7 @@ int main () {
     //Explaining to the user what they will have to do
     cout<<"Create your own monster by filling in each category with no spaces and then press ENTER."<<endl;
     cout<<"Choose from the following attributes for the head :Zombus, Franken, or Happy."<<endl;
-    cout<<"For all the other characteristics choose between Vegitas, Spritem, Wackus or None."<<endl;
+    cout<<"For all the other characteristics choose between Vegitas, Spritem, Wackus, or None."<<endl;
     cout<< " "<<endl;
     
     //This will be what is inputed by the user
