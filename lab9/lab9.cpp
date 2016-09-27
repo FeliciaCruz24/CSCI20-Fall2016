@@ -1,3 +1,7 @@
+/*Felicia Cruz
+September 26th 2016
+This program converts temperatures between Kelvin, Fahrenheit and Celsius.
+/*/
 #include<iostream>
 #include "lab9.cpp"
 using namespace std;
