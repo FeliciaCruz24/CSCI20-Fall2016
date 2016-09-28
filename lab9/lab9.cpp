@@ -1,67 +1,96 @@
-/*Felicia Cruz
-September 26th 2016
-This program converts temperatures between Kelvin, Fahrenheit and Celsius.
-/*/
+/*
+Felicia Cruz
+September 27th 2016
+This program is a temperatre converter between kelvins, celcius, fahranheit.
+*/
+
 #include<iostream>
-#include "lab9.cpp"
+#include<string>
 using namespace std;
 
 //the class and all the functions
 class TemperatureConverter{
     public:
-        void SetTempFromCelcius();
-        void SetTempFromFahrenheit();
-        void GetTempAsCelcius();
-        void GetTempAsFahrenheit();
-        void PrintTemps();
-        TemperatureConverter(int kelvin_);
+        void SetTempFromCelcius(float setTempCelcius); //setter
+        float GetTempAsCelcius() const;//getter
+        void SetTempFromFahrenheit(float setTempFahrenheit);//setter
+        float GetTempAsFahrenheit() const;//getter
+        void SetTempFromKelvin(float kelvinValue);//setter
+        float GetTempFromKelvin() const;//getter
+        void PrintTemps(string value);//display temperatures
+        TemperatureConverter();//default constructor
+        TemperatureConverter(float kelvin_);//overloaded constructor
     private:
-        void SetTempFromKelvin();
-        void GetTempFromKelvin();
-    
+        float kelvin_;//important variable
 };
-// need to fix SetTempFromKelvin and GetTempFrom Kelvin
 
 TemperatureConverter::TemperatureConverter() {  // Default constructor
-   kelvin_=0;        // Default price
-   return kelvin_;
+   kelvin_= 0.0;        // Default
+   return;
+}
+
+TemperatureConverter::TemperatureConverter(float reskelvin_){ //overload constructor
+    kelvin_=reskelvin_;
+}
+
+//accepts a kelvin value an stores it
+void TemperatureConverter:: SetTempFromKelvin(float kelvinValue){
+    kelvin_=kelvinValue;
+}
+
+//returns the kelvin value
+float TemperatureConverter::GetTempFromKelvin() const{
+    return kelvin_;
+}
 
 // the functions and all of their operations for the conversions
-void TemperatureConverter::SetTempFromCelcius(int setTempCelcius){
-    return setTempCelcius +273.15;
 
+void TemperatureConverter::SetTempFromCelcius(float setTempCelcius){//celcius to kelvins
+    kelvin_= setTempCelcius +273.15;
 }
-void TemperatureConverter::SetTempFromFahrenheit(int setTempFahrenheit){
-    return (5*(setTempFahrenheit-32)/9);
+
+float TemperatureConverter::GetTempAsCelcius() const{ //kelvins to celcius
+    return kelvin_-273.15;
 }
-void TemperatureConverter::GetTempAsCelcius(int getTempCelcius){
-    return getTempCelcius -273.15;
+
+void TemperatureConverter::SetTempFromFahrenheit(float setTempFahrenheit){ //fahranheit to kelvins
+    kelvin_= (5*(setTempFahrenheit-32)/9) + 273.15;
 }
-void TemperatureConverter::GetTempAsFahrenheit(int getTempFahrenheit){
-    return ((getTempFahrenheit*9)/5 + 32);
+float TemperatureConverter::GetTempAsFahrenheit() const{ //kelvins to fahranheit
+    return ((kelvin_*9)/5 + 32);
 }
-void TemperatureConverter::PrintTemps(){
-    
+
+void TemperatureConverter::PrintTemps(string value){ //display the temperatures
+    cout<<kelvin_<<value;
 }
+
+
 int main ()
 {
+    cout<< "TEMPERATURE CONVERTER: KELVINS, CELCIUS, FAHRANHEIT"<<endl;
     TemperatureConverter temp1; //testing default constructor
     TemperatureConverter temp2(274); //testing overloaded constructor
+    cout<<" "<<endl;
     
-    temp1.PrintTemps();
-    temp2.PrintTemps();
+    temp1.PrintTemps(" Kelvins (Testing default constructor)"); //display the default amount
+    cout<<endl;
+    temp2.PrintTemps(" Kelvins (Testing overloaded constructor)"); // display overload amount
+    cout<<endl;
     
     temp1.SetTempFromKelvin(400.15); //testing mutator function
-    cout<<temp1.GetTempFromKelvin()<<endl;//testing accessor function
-    temp1.PrintTemps();
+    cout<<temp1.GetTempFromKelvin()<<" Kelvins = ";//testing accessor function
+    temp1.PrintTemps(" Kelvins");
+    cout<<endl;
     
     temp2.SetTempFromCelcius(32); //testing other functions
-    cout<<temp2.GetTempAsCelcius()<<endl;
-    temp2.PrintTemps();
+    cout<<temp2.GetTempAsCelcius()<<" Degrees Celcius = "; //display temperature
+    temp2.PrintTemps(" Kelvins");//display amount in kelvins 
+    cout<<endl;
     
     temp2.SetTempFromFahrenheit(32);
-    cout<<temp2.GetTempAsFahrenheit()<<endl;
-    temp2.PrintTemps();
+    cout<<temp2.GetTempAsFahrenheit()<<" Degrees Fahranheit = "; // display temperature
+    temp2.PrintTemps(" Kelvins");//display amount in kelvins
+    cout<<endl;
     
     return 0;
 }
