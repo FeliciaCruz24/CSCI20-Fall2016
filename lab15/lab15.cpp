@@ -7,13 +7,13 @@ This is a program that is a menu and the user chooses the items they want
 using namespace std;
 
 int main(){
-    int numberItems = 10;
+    int MENU_ITEMS;//numbers of meals
     int i = 0;
-    int orderAmount = 0;
-    string menuItems[10] = {"Garlic Fries","Chili Cheese Fries", "Chili Cheese Nachos","Regular Nachos", "Pepperoni Pizza","Cheese Pizza", "Bacon Cheeseburger", "Soda", "Lemonade","Water"};
-    string done;
+    int menuChoices[MENU_ITEMS];//user inputs order number they want
+    char endMenu = '#';
     cout<<"Menu Items:"<<endl;
     
+    //menu
     cout<<"1. Garlic Fries"<<endl;
     cout<<"2. Chili Cheese Fries"<<endl;
     cout<<"3. Chili Cheese Nachos"<<endl;
@@ -24,20 +24,15 @@ int main(){
     cout<<"8. Soda" <<endl;
     cout<<"9. Lemonade"<<endl;
     cout<<"10. Water"<<endl;
+    cout<<endl;
     
-    cout<<"What would you like to order?"<<endl;
-    for(i = 0; i <= numberItems; i++){
-        orderAmount =0;
-        while(orderAmount < 30){
-            orderAmount++;
-            cout<<"Item "<< orderAmount<<":";
-            cin>>menuItems[i];
-            if(menuItems[i] == "done"){
-                cout<<"Thankyou for your order"<<endl;
-                i = 12;
-            }
+    cout<<"What would you like to order? Type the number of the item you want. When you are done type '#'."<<endl;//directions
+    cout<<"Items:"<<endl;
+    while(menuChoices[i] != endMenu){//as long as the user doesnt type # they can order
+        for(i = 0; i <20; i++){
+            cin>>menuChoices[i];//user's menu choices
         }
+        cout<<"Thankyou for your order.";//when user types # this happens
+        
     }
-    
-    
 }
