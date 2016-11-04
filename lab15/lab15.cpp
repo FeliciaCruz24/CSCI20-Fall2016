@@ -1,7 +1,3 @@
-/*Felicia Cruz
-October 25th
-This is a program that is a menu and the user chooses the items they want
-*/
 #include<iostream>
 #include<string>
 using namespace std;
@@ -28,11 +24,12 @@ int main(){
     
     cout<<"What would you like to order? Type the number of the item you want. When you are done type '#'."<<endl;//directions
     cout<<"Items:"<<endl;
-    while(menuChoices[i] != endMenu){//as long as the user doesnt type # they can order
+    //as long as the user doesnt type # they can order
         for(i = 0; i <20; i++){
             cin>>menuChoices[i];//user's menu choices
+            if(menuChoices[i] == endMenu){
+            cout<<"Thankyou for your order.";//when user types # this happens
+            }
         }
-        cout<<"Thankyou for your order.";//when user types # this happens
         
-    }
 }
