@@ -186,7 +186,7 @@ int main(){
             game.SetComputerGameRoundsWon(0, gamePiece, computerGamePiece);//checks if computer won rounds
             game.GetComputerRoundsWon();//gets how many rounds computer won
             game.SetRoundsTied(0, gamePiece, computerGamePiece);//checks if they tied
-            game.GetRoundsTied();//rounds tied
+            game.GetRoundsTied();//rounds tied-
             cout<<endl;
             }
             game.PrintWhoWOn();//says who won the game
