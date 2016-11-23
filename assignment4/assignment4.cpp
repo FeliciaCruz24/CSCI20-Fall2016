@@ -7,119 +7,62 @@ It will say the students score, how many questions weren's answered, their name 
 
 #include<iostream>
 #include<string>
+#include<ios>
+#include<iomanip>
+#include<cstring>
 #include<fstream>
 using namespace std;
 
+
 class TestGradingProgram{
   public:
-    void SetStudentOneScores(string oneStudent[],int scores_1, string correctAnswers[], int correctScores);
-    float GetStudentOneScores() const;
-    void SetStudentTwoScores(string twoStudent[],int scores_2, string correctAnswers[], int correctScores);
-    float GetStudentTwoScores() const;
-    void SetStudentThreeScores(string threeStudent[],int scores_3, string correctAnswers[], int correctScores);
-    float GetStudentThreeScores() const;
-    void SetStudentFourScores(string fourStudent[],int scores_4, string correctAnswers[], int correctScores);
-    float GetStudentFourScores() const;
-    void SetStudentFiveScores(string fiveStudent[],int scores_5, string correctAnswers[], int correctScores);
-    float GetStudentFiveScores() const;
-    void PrintAllScores();
+   void SetCharIncorrectAnswers(char* STUDENT_ANSWERS[]);
+   int GetCharIncorrectAnswers()const;
+   void SetStringIncorrectAnswers();
+   int GetStringIncorrectAnswers()const;
+   void SetStudentTestGrade();
+   float GetStudentGrade() const;
+   
 private:
     int i= 0;
-    int h=0;
     int totalScore =23;
+    int charOmmittedAnswers = 0;
+    int stringOmmittedAnswers = 0;
+    int charIncorrectAnswers = 0;
+    int stringIncorrectAnswers = 0;
 };
-//need to fix each function. They are supposed to check the students answers with the answer key. Whichever answeers
-//do not match they will be subtracted from the total. Then we will get the students score, ommitted answers, and incorrect
-//answers. Need to go back through each function and fix it.
-void TestGradingProgram::SetStudentOneScores(string oneStudent[],int scores_1, string correctAnswers[], int correctScores){
-    for(i=0; i<scores_1; i++){
-        oneStudent[i];
-        for(i =0; i<correctScores; i++){
-            correctAnswers[i];
+
+void TestGradingProgram::SetCharIncorrectAnswers(char* STUDENT_ANSWERS[]){
+  char ommitedAnswer = '?';
+   char letterAnswerKey[19] ={'a', 'b', 'c', 'c', 'c', 'c', 'a', 'a', 'b', 'b', 'f', 'f', 't', 't', 'f', 't', 'f', 'f'};
+    if(strcmp (const char* STUDENT_ANSWERS[i], const char*letterAnswerKey[i]) !=0){
+        charIncorrectAnswers = strlen(STUDENT_ANSWERS[i]);
+        if(STUDENT_ANSWERS[i] == ommitedAnswer){
+            charOmmittedAnswers = strlen( STUDENT_ANSWERS[i]);
         }
-        if(oneStudent[i] != correctScores[i]){
-            oneStudent[i].length();
-            totalScore = totalScore - oneStudent[i].size();    
-        }
-        if(oneStudent[i] =="?")||
-    }    
+        charIncorrectAnswers = charIncorrectAnswers - charOmmittedAnswers;
+    }
 }
-float TestGradingProgram::GetStudentOneScores()const{
-    
+int TestGradingProgram::GetCharIncorrectAnswers()const{
+    return charIncorrectAnswers, charOmmittedAnswers;
 }
-void TestGradingProgram::SetStudentTwoScores(){
-    for(i=0; i<scores_2; i++){
-        twoStudent[i];
-        for(i =0; i<correctScores; i++){
-            correctAnswers[i];
-        }
-        if(twoStudent[i] != correctScores[i]){
-        
-        }    
-    }    
+void TestGradingProgram::SetStringIncorrectAnswers(){
+   
 }
-float TestGradingProgram::GetStudentTwoScores()const{
-    
-}
-void TestGradingProgram::SetStudentThreeScores(){
-    for(i=0; i<scores_1; i++){
-        threeStudent[i];
-        for(i =0; i<correctScores; i++){
-            correctAnswers[i];
-        }
-        if(threeStudent[i] != correctScores[i]){
-        
-        }    
-    }    
-}
-float TestGradingProgram::GetStudentThreeScores()const{
-    
-}
-void TestGradingProgram::SetStudentFourScores(){
-    for(i=0; i<scores_1; i++){
-        fourStudent[i];
-        for(i =0; i<correctScores; i++){
-            correctAnswers[i];
-        }
-        if(fourStudent[i] != correctScores[i]){
-        
-        }    
-    }    
-}
-float TestGradingProgram::GetStudentFourScores()const{
-    
-}
-void TestGradingProgram::SetStudentFiveScores(){
-   for(i=0; i<scores_1; i++){
-        fiveStudent[i];
-        for(i =0; i<correctScores; i++){
-            correctAnswers[i];
-        }
-        if(fiveStudent[i] != correctScores[i]){
-        
-        }    
-    }     
-}
-float TestGradingProgram::GetStudentFiveScores()const{
+int TestGradingProgram::GetStringIncorrectAnswers()const{
     
 }
 int main(){
     ifstream inFS;
-    string answerKey[23] ={"a", "b", "c", "c", "c", "c", "a", "a", "b", "b", "f", "f", "t", "t", "f", "t", "f", "f","variable", "random", "condition"};
-    int student_one = 23;
-    char studentOne[student_one];
-    int student_two =23;
-    string studentTwo[student_two];
-    int student_three = 23;
-    string studentThree[student_three];
-    int student_four =23;
-    string studentFour[student_four];
-    int student_five =23;
-    string studentFive[student_five];
+    
+    int student_answers;
+    char studentAnswers[student_answers];
     int firstName = 1;
     int lastName = 4;
-    string firstLastName[1][4];
+    string firstLastName[firstName][lastName];
     string fileName;
+    
+    TestGradingProgram grades;
     
     cout<<"Text File Name:";
     cin>>fileName;
@@ -130,13 +73,12 @@ int main(){
         cout<<"Unable to open file.";
     }
     inFS>>firstLastName[firstName][lastName];
-    inFS>>studentOne[student_one];
-    inFS>>studentTwo[student_two];
-    inFS>>studentThree[student_three];
-    inFS>>studentFour[student_four];
-    inFS>>studentFive[student_five];
+    inFS>>studentAnswers[student_answers];
+    
     
     inFS.close();
+    
+    
     
     //need to add my output file
 
