@@ -102,7 +102,6 @@ int main(){
     cout<<"Congratulations! You win! The word was "<<holidayWord<< "!"<<endl;// if they guess the word then it displays they won and what the word is
     
     cout<<"You had ";
-    cout<<incorrectGuesses;
     cout<<hangMan.AmountIncorrectAnswers()<< " incorrect guesses."<<endl;//it displays how many guesses they got wrong
     
 }
